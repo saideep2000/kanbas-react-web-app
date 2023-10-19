@@ -1,23 +1,20 @@
-import Classes from "./Classes";
-import ConditionalOutput from "./ConditionalOutput";
 import JavaScript from "./JavaScript";
-import PathParameters from "./PathParameters";
+import Classes from "./Classes";
 import Styles from "./Styles";
-import TodoItem from "./todo/TodoItem";
+import ConditionalOutput from "./ConditionalOutput";
 import TodoList from "./todo/TodoList";
 
 function Assignment3() {
     return (
-      <div className="container">
-        <h1>Assignment 3</h1>
-        <TodoList/>
-        <TodoItem/>
-        <ConditionalOutput/>
-        <Styles/>
-        <Classes/>
-        <PathParameters/>
-        <JavaScript/>
-      </div>
+        <div className="container">
+            <h1>Assignment 3</h1>
+            <TodoList/>
+            <ConditionalOutput/>
+            <Styles/>
+            <Classes/>
+            <JavaScript/>
+        </div>
     );
 }
-export default Assignment3;
+
+export default Assignment3; // lets you use functions present in this file in other js files.

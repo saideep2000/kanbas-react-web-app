@@ -1,54 +1,58 @@
-import { Link } from "react-router-dom";
-import db from "../Database";
-import './dashboard.css'
+import {Link} from "react-router-dom";
+
+import db from "../Database"
+import "./index.css";
 
 function Dashboard() {
-  const courses = db.courses;
-  return (
-    <div class="wd-scrollable">
-        <div class="wd-account-main-page">
-                <div class="container-fluid">
-                    <div class="row account-header">
-                        <div class = "col col-sm-4  wd-dashboard-header">Dashboard</div>
-                    </div>
-                    <div class="row">
-                        <hr class="wd-custom-divider" />
-                    </div>
-                    <div class="wd-main-dashboard container-fluid">
-                        <div class="row">
-                            <h3 class="wd-dashboard-sub-header">Published Courses(24)</h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <hr class="wd-custom-divider2" />
-                    </div>
-                    <div className="row">
-                        {courses.map((course) => (
-                            <div key={course._id} className="col col-12 col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center mb-3 mt-3">
-                                <div className="card wd-dashboard-course-card">
-                                    <div className="wd-card-image-container">
-                                        <div className="float-end">
-                                            <div className="wd-course-card-ellipses">
-                                                <i className="fa-solid fa-ellipsis-vertical white course-edit-icon"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="card-body">
-                                        <h6 className="card-title wd-card-header">
-                                            <Link to={`/Kanbas/Courses/${course._id}`} style={{textDecoration: 'none'}}>
-                                                {course.name}<span className="wd-red">...</span>
-                                            </Link>
-                                        </h6>
-                                        <p className="card-subtitle text-body-secondary wd-text-grey">{course.number}</p>
-                                        <p className="card-text wd-card-text">{course.term}</p>
-                                    </div>
+    const courses = db.courses;
+    console.log(courses);
+    const colors = ["darkblue", "darkgoldenrod", "darkred"]
+    return (
+        <div className="container-fluid">
+            <div className="row d-flex flex-row flex-wrap pb-0">
+                <div className="col col-sm-12 col-xl-8 col-md-10 wd-dashboard-header-text">Dashboard</div>
+            </div>
+            <div className="row d-flex flex-row flex-wrap pb-0">
+                <div className="col col-sm-11 col-xl-11 col-md-11">
+                    <hr className="m-2 font-weight"/>
+                </div>
+            </div>
+            <div className="row d-flex flex-row flex-wrap mt-2">
+                 <div className="wd-dashboard-sub-header-text col-sm-11 col-md-11 col-xl-11">
+                     Published Courses(24)
+                 </div>
+                <div className="wd-dashboard-sub-header-text col col-sm-10 col-xl-10 col-md-10">
+                    <hr className="m-1 font-weight"/>
+                </div>
+            </div>
+            <div className="container-fluid">
+                <div className="d-flex flex-row flex-wrap row" style={{"margin": "1rem"}}>
+                    {courses.map((course) => {
+                        let random = Math.floor(Math.random() * colors.length);
+                        return (
+                        <div className="card wd-course-card m-5 p-0">
+                        <div className="wd-card-image-container" style={{"background":`${colors[random]}`}}>
+                            <div className="float-end">
+                                <div className="wd-course-card-ellipses p-1">
+                                    <i className="fa-solid fa-ellipsis-vertical wd-color-white p-2"></i>
                                 </div>
                             </div>
-                        ))}
+                        </div>
+                        <div className="card-body">
+                            <Link key={course._id} to={`/Kanbas/Courses/${course._id}`} className="list-group-item wd-card-header">
+                                {course.number} {course.name} <span className="wd-col-red">...</span>
+                            </Link>
+                            <p className="card-subtitle text-body-secondary">{course.number}.12631.{course.endDate}</p>
+                            <p className="card-text wd-card-text">202410_1 Fall 2023 Semester</p>
+                            <i className="fa-solid fa-file-pen fa-lg wd-light-grey p-2"></i>
+                        </div>
                     </div>
+                    );
+                    })}
                 </div>
+            </div>
         </div>
-    </div>
-  );
+    );
 }
+
 export default Dashboard;

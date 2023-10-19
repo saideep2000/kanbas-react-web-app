@@ -1,17 +1,14 @@
-import React from 'react';
-
-const ImpiledReturn = () => {
+function ImpliedReturn() {
     const multiply = (a, b) => a * b;
-    const fourTimesFive = multiply(4, 5);
-    console.log(fourTimesFive);
-
+    const fourTimesFour = multiply(4, 5);
+    console.log(fourTimesFour);
     return (
         <>
-         <h3>Impiled return</h3>
-         fourTimesFive = {fourTimesFive}<br />
-         multiply(4, 5) = {multiply(4, 5)}<br />
+            <h2>Implied return</h2>
+            fourTimesFour = {fourTimesFour}<br/>
+            multiply(4, 5) = {multiply(4, 5)}<br/>
         </>
-    )
+    );
 }
 
-export default ImpiledReturn
+export default ImpliedReturn;

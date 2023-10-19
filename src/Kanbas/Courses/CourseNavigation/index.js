@@ -1,60 +1,29 @@
-import { Link, useParams, useLocation } from "react-router-dom";
-import '../index.css'
+import {Link, useParams, useLocation} from "react-router-dom";
+import db from "../../Database";
 
 function CourseNavigation() {
-  const links = ["Home", "Modules", "Assignments", "Grades"];
-  const { courseId } = useParams();
-  const { pathname } = useLocation();
-  return (
-    <div class="wd-scrollable">
-        <div class="wd-account-main-page">
-            <div class="container-fluid">
-                <div class="row align-items-start">
-                    <div class="col-auto">
-                      <i class="fa-solid fa-bars wd-custom-hamburger"></i>
-                    </div>
-                    <div class="col">
-                      {/* <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb"> */}
-                        <ol class="breadcrumb">
-                          <li class="breadcrumb-item wd-breadcrumb-header"><a href="index.html">CS5610.11744.202310</a></li>
-                          <li class="breadcrumb-item wd-breadcrumb-header-active" aria-current="page">Home</li>
-                        </ol>
-                      {/* </nav> */}
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                    <hr class="wd-custom-divider" />
-            </div>
-            <div class="row">
-                <div class="col col-sm-2">
-                    <div class="wd-account-navigation">
-                        <div class="wd-navigation-element"><div class="wd-note">202310_2 Fall 2022...</div>
-                        <div class="wd-navigation-element wd-navigation-element-active"><a href="index.html">Home</a></div>
-                        <div class="wd-navigation-element"><a href="#">Modules</a></div>
-                        <div class="wd-navigation-element"><a href="#">Piazza</a></div>
-                        <div class="wd-navigation-element"><a href="#">Zoom Meetings</a></div>
-                        <div class="wd-navigation-element"><a href="assignments/index.html">Assignments</a></div>
-                        <div class="wd-navigation-element"><a href="#">Quizzes</a></div>
-                        <div class="wd-navigation-element"><a href="grades.html">Grades</a></div>
-                        <div class="wd-navigation-element"><a href="#">People</a></div>
-                        <div class="wd-navigation-element"><a href="#">Discussions</a></div>
-                        <div class="wd-navigation-element"><a href="#">Announcements</a></div>
-                        <div class="wd-navigation-element"><a href="#">Pages</a></div>
-                        <div class="wd-navigation-element"><a href="#">Files</a></div>
-                        <div class="wd-navigation-element"><a href="#">Rubrics</a></div>
-                        <div class="wd-navigation-element"><a href="#">Outcomes</a></div>
-                        <div class="wd-navigation-element"><a href="#">Collaborations</a></div>
-                        <div class="wd-navigation-element"><a href="#">Syllabus</a></div>
-                        <div class="wd-navigation-element"><a href="setting/course_details.html">Settings</a></div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  );
-}
+    const links = ["Home", "Modules", "Piazza", "Zoom Meeting", "Assignments", "Quizzes", "Grades", "People",
+        "Panopto Video", "Discussions", "Announcements", "Pages", "Files", "Rubrics", "Outcomes", "Collaborations",
+        "Syllabus", "Settings"];
+    const eyelinks = ["Discussions", "Announcements", "Pages", "Files", "Rubrics", "Outcomes", "Collaborations",
+        "Syllabus"]
 
+    const {courseId} = useParams();
+    const {pathname} = useLocation();
+    const course = db.courses.find((course) => course._id === courseId);
+
+    return (
+        <div className="wd-navigation-element">
+            <div className="wd-note pb-2">{course.number}_{course.startDate}...</div>
+            {links.map((link, index) => (
+                <Link
+                key = {index}
+                to={`/Kanbas/Courses/${courseId}/${link}`}
+                className={`list-group-item wd-navigation-element-link p-2 ${pathname.includes(link) && "active wd-border-left"}`}>
+                {link}{eyelinks.includes(link) ? <i className="fa-regular fa-eye-slash float-end p-1 wd-color-black"></i> : ""}</Link>
+                ))}
+        </div>
+    );
+}
 
 export default CourseNavigation;

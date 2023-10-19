@@ -1,15 +1,16 @@
-const ForLoops = () => {
-    let numberArray1 = [1, 2, 3, 4, 5];
+function ForLoops() {
     let stringArray1 = ['string1', 'string2'];
-    numberArray1.push(6);         // adding new items
-    stringArray1.push('string3');
-    numberArray1.splice(2, 1);  // remove 1 item starting at 2
-    stringArray1.splice(1, 1);
-    return(
+    let stringArray2 = [];
+    for (let i = 0; i < stringArray1.length; i++){
+        const string1 = stringArray1[i];
+        stringArray2.push(string1.toUpperCase());
+    }
+    return (
         <>
             <h2>Looping through arrays</h2>
-            stringArray2 = {stringArray1}<br/>
+            stringArray2 = {stringArray2}
         </>
-     );
+    );
 }
-export default ForLoops
+
+export default ForLoops;

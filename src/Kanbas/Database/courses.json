@@ -1,26 +1,12 @@
 [
-  {"_id": "RS001", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS002", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS003", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS004", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS005", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS006", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS007", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS008", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS009", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS010", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS011", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS012", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS013", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS014", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS015", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS016", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS017", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS018", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS019", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS020", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS021", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS022", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS023", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"},
-  {"_id": "RS024", "name": "CS4550 126 Web Development", "number": "CS4550.12631.202410", "term": "202410_1 Fall 2023 Semester"}
+  { "_id": "RS101",
+    "name": "Rocket Propulsion", "number": "RS4550", "startDate": "2023-01-10",
+    "endDate": "2023-05-15"
+  },
+  { "_id": "RS102",
+    "name": "Aerodynamics", "number": "RS4560", "startDate": "2023-01-10", "endDate": "2023-05-15"
+  },
+  { "_id": "RS103",
+    "name": "Spacecraft Design", "number": "RS4570", "startDate": "2023-01-10", "endDate": "2023-05-15"
+  }
 ]
