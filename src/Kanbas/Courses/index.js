@@ -1,4 +1,3 @@
-import db from "../../Kanbas/Database";
 // eslint-disable-next-line
 import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import "./index.css"
@@ -14,12 +13,14 @@ import AssignmentEditor from "./Assignments/AssignmentEditor";
 import AssignmentName from "./Assignments/AssignmentEditor/AssignmentName";
 import AssignmentEditorActionButtons from "./Assignments/AssignmentEditor/AssignmentEditorActionButtons";
 
-function Courses() {
+function Courses({
+    courses
+}) {
     const {courseId} = useParams();
     const {pathname} = useLocation();
     const array = pathname.split("/");
     console.log(array);
-    const course = db.courses.find((course) => course._id === courseId);
+    const course = courses.find((course) => course._id === courseId);
     return (
         <div className="wd-scrollable">
             <div className="wd-main-account-page">

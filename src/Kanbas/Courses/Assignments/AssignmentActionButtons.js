@@ -22,5 +22,4 @@ function AssignmentActionButtons(){
         </div>
     );
 }
-
 export default AssignmentActionButtons;

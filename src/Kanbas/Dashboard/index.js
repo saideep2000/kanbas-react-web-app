@@ -1,11 +1,16 @@
 import {Link} from "react-router-dom";
-
-import db from "../Database"
 import "./index.css";
+import CourseForm from "./CourseForm";
+import CourseItem from "./CourseItem";
 
-function Dashboard() {
-    const courses = db.courses;
-    console.log(courses);
+function Dashboard({
+    courses, 
+    course, 
+    setCourse, 
+    addCourse,
+    deleteCourse, 
+    updateCourse
+}) {
     const colors = ["darkblue", "darkgoldenrod", "darkred"]
     return (
         <div className="container-fluid">
@@ -19,7 +24,7 @@ function Dashboard() {
             </div>
             <div className="row d-flex flex-row flex-wrap mt-2">
                  <div className="wd-dashboard-sub-header-text col-sm-11 col-md-11 col-xl-11">
-                     Published Courses(24)
+                     Published Courses({courses.length})
                  </div>
                 <div className="wd-dashboard-sub-header-text col col-sm-10 col-xl-10 col-md-10">
                     <hr className="m-1 font-weight"/>
@@ -27,11 +32,17 @@ function Dashboard() {
             </div>
             <div className="container-fluid">
                 <div className="d-flex flex-row flex-wrap row" style={{"margin": "1rem"}}>
+                    <CourseForm
+                        course={course}
+                        setCourse={setCourse}
+                        addCourse={addCourse}
+                        updateCourse={updateCourse}
+                    />
                     {courses.map((course) => {
-                        let random = Math.floor(Math.random() * colors.length);
+                        // let random = Math.floor();
                         return (
                         <div className="card wd-course-card m-5 p-0">
-                        <div className="wd-card-image-container" style={{"background":`${colors[random]}`}}>
+                        <div className="wd-card-image-container" style={{"background":`${colors[0]}`}}>
                             <div className="float-end">
                                 <div className="wd-course-card-ellipses p-1">
                                     <i className="fa-solid fa-ellipsis-vertical wd-color-white p-2"></i>
@@ -44,7 +55,12 @@ function Dashboard() {
                             </Link>
                             <p className="card-subtitle text-body-secondary">{course.number}.12631.{course.endDate}</p>
                             <p className="card-text wd-card-text">202410_1 Fall 2023 Semester</p>
-                            <i className="fa-solid fa-file-pen fa-lg wd-light-grey p-2"></i>
+                            {/* <i className="fa-solid fa-file-pen fa-lg wd-light-grey p-2"></i> */}
+                            <CourseItem
+                                course = {course}
+                                deleteCourse = {deleteCourse}
+                                setCourse = {setCourse}
+                            />
                         </div>
                     </div>
                     );

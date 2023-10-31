@@ -81,3 +81,9 @@ npm  install  react-icons
 npm  install  react-router
 
 npm  install  react-router-dom
+
+npm  install  redux --save
+
+npm  install  react-redux --save
+
+npm  install  @reduxjs/toolkit --save
