@@ -1,6 +1,8 @@
 // eslint-disable-next-line
 import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import "./index.css"
+import { useState, useEffect } from "react";
+import axios from "axios";
 import CourseNavigation from "./CourseNavigation";
 import {Navigate, Route, Routes} from "react-router";
 import Modules from "./Modules";
@@ -20,7 +22,22 @@ function Courses({
     const {pathname} = useLocation();
     const array = pathname.split("/");
     console.log(array);
-    const course = courses.find((course) => course._id === courseId);
+    const [course, setCourse] = useState({});
+    const URL = "https://kanbas-node-server-app-saideep-3f7fd5ee2ace.herokuapp.com/api/courses";
+    
+    const findCourseById = async (courseId) => {
+        const response = await axios.get(
+        `${URL}/${courseId}`
+        );
+        setCourse(response.data);
+    };
+
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
+    
+
+    // const course = courses.find((course) => course._id === courseId);
     return (
         <div className="wd-scrollable">
             <div className="wd-main-account-page">
@@ -30,8 +47,10 @@ function Courses({
                             <i className="fa-solid fa-bars wd-custom-hamburger"></i>
                         </div>
                         <div className="col wd-padding-left align-content-center">
+                            {/* console.log{course} */}
                             <nav className="wd-breadcrumb-divider" aria-label="breadcrumb">
                                 <ol className="breadcrumb w-100">
+                                    
                                     <Link to="Home" className="breadcrumb-item wd-breadcrumb-header">{course.name}</Link>
                                     <span className="breadcrumb-divider">&gt;</span>
                                     <li className={"breadcrumb-item wd-breadcrumb-header-active"}
@@ -66,7 +85,8 @@ function Courses({
                     <div className="row">
                         <div className="col-2">
                             <div className="wd-account-navigation">
-                                <CourseNavigation/>
+                                <CourseNavigation
+                                />
                             </div>
                         </div>
                         <div className="col-7">

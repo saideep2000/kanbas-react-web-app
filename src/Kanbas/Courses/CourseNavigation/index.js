@@ -1,5 +1,7 @@
 import {Link, useParams, useLocation} from "react-router-dom";
-import db from "../../Database";
+import db from "./index";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function CourseNavigation() {
     const links = ["Home", "Modules", "Piazza", "Zoom Meeting", "Assignments", "Quizzes", "Grades", "People",
@@ -10,11 +12,28 @@ function CourseNavigation() {
 
     const {courseId} = useParams();
     const {pathname} = useLocation();
-    const course = db.courses.find((course) => course._id === courseId);
+
+    const URL = "https://kanbas-node-server-app-saideep-3f7fd5ee2ace.herokuapp.com/api/courses";
+
+    const [course, setCourse] = useState({});
+
+    const findCourseById = async (courseId) => {
+        const response = await axios.get(
+        `${URL}/${courseId}`
+        );
+        setCourse(response.data);
+    };
+
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
+
+    // const course = db.courses.find((course) => course._id === courseId);
 
     return (
         <div className="wd-navigation-element">
             <div className="wd-note pb-2">{course.number}_{course.startDate}...</div>
+            
             {links.map((link, index) => (
                 <Link
                 key = {index}

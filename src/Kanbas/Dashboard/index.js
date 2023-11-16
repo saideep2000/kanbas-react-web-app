@@ -38,10 +38,10 @@ function Dashboard({
                         addCourse={addCourse}
                         updateCourse={updateCourse}
                     />
-                    {courses.map((course) => {
+                    {courses.map((individualCourse) => {
                         // let random = Math.floor();
                         return (
-                        <div className="card wd-course-card m-5 p-0">
+                        <div className="card wd-course-card m-5 p-0" key={individualCourse._id}>
                         <div className="wd-card-image-container" style={{"background":`${colors[0]}`}}>
                             <div className="float-end">
                                 <div className="wd-course-card-ellipses p-1">
@@ -50,14 +50,14 @@ function Dashboard({
                             </div>
                         </div>
                         <div className="card-body">
-                            <Link key={course._id} to={`/Kanbas/Courses/${course._id}`} className="list-group-item wd-card-header">
-                                {course.number} {course.name} <span className="wd-col-red">...</span>
+                            <Link to={`/Kanbas/Courses/${individualCourse._id}`} className="list-group-item wd-card-header">
+                                {individualCourse.number} {individualCourse.name} <span className="wd-col-red">...</span>
                             </Link>
-                            <p className="card-subtitle text-body-secondary">{course.number}.12631.{course.endDate}</p>
+                            <p className="card-subtitle text-body-secondary">{individualCourse.number}.12631.{individualCourse.endDate}</p>
                             <p className="card-text wd-card-text">202410_1 Fall 2023 Semester</p>
                             {/* <i className="fa-solid fa-file-pen fa-lg wd-light-grey p-2"></i> */}
                             <CourseItem
-                                course = {course}
+                                course = {individualCourse}
                                 deleteCourse = {deleteCourse}
                                 setCourse = {setCourse}
                             />

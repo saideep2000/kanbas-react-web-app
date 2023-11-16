@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../../Database";
+import db from "./AssignmentActionButtons";
 
 function Assignments() {
   const { courseId } = useParams();

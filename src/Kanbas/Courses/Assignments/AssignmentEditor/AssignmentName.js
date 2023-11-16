@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom";
-import db from "../../../Database";
+import db from "./index";
 import "../../index.css";
 function AssignmentName() {
     const {assignmentId} = useParams();
