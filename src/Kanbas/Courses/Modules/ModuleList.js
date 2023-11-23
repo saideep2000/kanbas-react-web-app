@@ -44,8 +44,8 @@ function ModuleList() {
     const handleUpdateModule = async () => {
         const status = await upModule(module);
         dispatch(updateModule(module));
+        dispatch(resetModule);
     };
-    
     
     
 

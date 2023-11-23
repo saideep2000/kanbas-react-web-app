@@ -3,8 +3,8 @@ import axios from "axios";
 // const MODULES_URL = "https://kanbas-node-server-app-saideep-3f7fd5ee2ace.herokuapp.com/api/modules";
 
 const API_BASE = process.env.REACT_APP_API_BASE;
-const COURSES_URL = `${API_BASE}/courses`;
-const MODULES_URL = `${API_BASE}/modules`;
+const COURSES_URL = `${API_BASE}/api/courses`;
+const MODULES_URL = `${API_BASE}/api/modules`;
 
 export const findModulesForCourse = async (courseId) => {
   const response = await axios
@@ -31,7 +31,3 @@ export const upModule = async (module) => {
       put(`${MODULES_URL}/${module._id}`, module);
     return response.data;
 };
-
-
-  
-  
