@@ -13,7 +13,7 @@ function CourseNavigation() {
     const {courseId} = useParams();
     const {pathname} = useLocation();
 
-    const URL = "https://kanbas-node-server-app-saideep-3f7fd5ee2ace.herokuapp.com/api/courses";
+    const URL = process.env.REACT_APP_API_BASE + "/api/courses";
 
     const [course, setCourse] = useState({});
 

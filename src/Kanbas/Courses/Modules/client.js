@@ -2,7 +2,7 @@ import axios from "axios";
 // const COURSES_URL = "https://kanbas-node-server-app-saideep-3f7fd5ee2ace.herokuapp.com/api/courses";
 // const MODULES_URL = "https://kanbas-node-server-app-saideep-3f7fd5ee2ace.herokuapp.com/api/modules";
 
-const API_BASE = process.env.REACT_APP_API_BASE || "https://kanbas-node-server-app-saideep-3f7fd5ee2ace.herokuapp.com/api" ;
+const API_BASE = process.env.REACT_APP_API_BASE;
 const COURSES_URL = `${API_BASE}/courses`;
 const MODULES_URL = `${API_BASE}/modules`;
 

@@ -23,7 +23,7 @@ function Courses({
     const array = pathname.split("/");
     console.log(array);
     const [course, setCourse] = useState({});
-    const URL = "https://kanbas-node-server-app-saideep-3f7fd5ee2ace.herokuapp.com/api/courses";
+    const URL = process.env.REACT_APP_API_BASE + "/api/courses";
     
     const findCourseById = async (courseId) => {
         const response = await axios.get(
